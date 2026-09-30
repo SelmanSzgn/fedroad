@@ -14,10 +14,12 @@ dependencies = [
     "pyyaml",
     "pydantic>=2",
     "typer",
+    "mlflow",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov", "ruff", "mypy", "pre-commit"]
+dvc = ["dvc"]
 
 [project.scripts]
 fedroad = "fedroad.cli:app"

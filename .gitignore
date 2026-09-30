@@ -6,3 +6,6 @@ data/
 runs/
 *.egg-info/
 check.log
+mlflow.db
+mlruns/
+mlartifacts/

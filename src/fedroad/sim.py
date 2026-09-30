@@ -105,4 +105,6 @@ def run(cfg, out):
                     f"min {row['cacc_min']:.2f} %"
                 )
             w.writerow(row)
+    state = {k: v.cpu() for k, v in gmodel.state_dict().items()}
+    torch.save(state, out / "model.pt")
     return out / "metrics.csv"
