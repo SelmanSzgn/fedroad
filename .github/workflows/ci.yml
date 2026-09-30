@@ -34,7 +34,7 @@ jobs:
           --index-url https://download.pytorch.org/whl/cpu
 
       - name: Install project
-        run: pip install -e ".[dev]"
+        run: pip install -e ".[dev,campaign]"
 
       - name: Lint
         run: ruff check .

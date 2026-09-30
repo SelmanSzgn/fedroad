@@ -1,0 +1,5 @@
+name: epochs
+base: configs/default.yaml
+seeds: [0, 1, 2]
+grid:
+  n_local_epochs: [1, 3, 5]

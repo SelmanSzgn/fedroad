@@ -15,14 +15,18 @@ dependencies = [
     "pydantic>=2",
     "typer",
     "mlflow",
+    "pandas",
+    "matplotlib",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest", "pytest-cov", "ruff", "mypy", "pre-commit"]
 dvc = ["dvc"]
+campaign = ["prefect"]
 
 [project.scripts]
 fedroad = "fedroad.cli:app"
+fedroad-campaign = "fedroad.campaign:cli"
 
 [tool.setuptools.packages.find]
 where = ["src"]
