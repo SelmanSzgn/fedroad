@@ -1,8 +1,8 @@
 import torch
 
-from client import Client
-from model import Model
-from server import aggregate
+from fedroad.client import Client
+from fedroad.model import Model
+from fedroad.server import aggregate
 
 
 def make_model(v):

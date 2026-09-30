@@ -33,14 +33,13 @@ def get_transform_train():
     ])
     return transform_train
 
-def get_trainset():
-    trainset = torchvision.datasets.CIFAR10(
-        root="data/cifar10",
+def get_trainset(root):
+    return torchvision.datasets.CIFAR10(
+        root=root,
         train=True,
         download=True,
-        transform=get_transform_train()
+        transform=get_transform_train(),
     )
-    return trainset
 
 def get_transform_test():
     transform_test = transforms.Compose([
@@ -50,17 +49,15 @@ def get_transform_test():
     ])
     return transform_test
 
-def get_testset():
-    testset = torchvision.datasets.CIFAR10(
-        root="data/cifar10",
+def get_testset(root):
+    return torchvision.datasets.CIFAR10(
+        root=root,
         train=False,
-        download=False,
-        transform=get_transform_test()
+        download=True,
+        transform=get_transform_test(),
     )
-    return testset
 
-def get_test_loader():
-    test_loader = torch.utils.data.DataLoader(
-            get_testset(), batch_size=64, shuffle=False, num_workers=0)
-    return test_loader
-
+def get_test_loader(root):
+    return torch.utils.data.DataLoader(
+        get_testset(root), batch_size=64, shuffle=False, num_workers=0
+    )

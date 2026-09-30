@@ -1,11 +1,12 @@
+import copy
+
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import copy
 
-from model import Model
-from data import sample_local_data
+from .data import sample_local_data
+from .model import Model
 
 
 class Client:
@@ -137,65 +138,23 @@ def get_arrivals(sim_time, poisson):
             stop = True
     return arrivals
 
-def get_all_clients(
-        arrivals, 
-        trainset, 
-        class_indices, 
-        n_sub_classes, 
-        min_kph,
-        max_kph, 
-        road_length_m, 
-        min_n_data, 
-        max_n_data, 
-        min_cpu_hz,
-        max_cpu_hz, 
-        batch, 
-        epochs, 
-        cpu_cycles,
-        eff_capa, 
-        snr_db_min, 
-        snr_db_max, 
-        bw_hz, 
-        ptx, 
-        lr, 
-        momentum, 
-        decay
-    ):
-    """Create all clients."""
-    all_clients = []
-    for i in range(len(arrivals)):
-        kph = np.random.uniform(min_kph, max_kph)
-        mps = kph / 3.6
-        t_leave = arrivals[i] + road_length_m / mps
-        n_data = np.random.randint(min_n_data, max_n_data + 1)
-        local_data = sample_local_data(
-            trainset, 
-            class_indices, 
-            n_data, 
-            n_sub_classes
-        )
-        n_data = len(local_data)
-        cpu_hz = np.random.uniform(min_cpu_hz, max_cpu_hz)
-        snr_db = np.random.uniform(snr_db_min, snr_db_max)
-        client = Client(
-            i, 
-            arrivals[i], 
-            kph, 
-            t_leave, 
-            n_data, 
-            local_data,
-            cpu_hz, 
-            batch, 
-            epochs, 
-            cpu_cycles,
-            eff_capa, 
-            snr_db, 
-            bw_hz, 
-            ptx, 
-            lr, 
-            momentum, 
-            decay
-        )
-        all_clients.append(client)
-    return all_clients
+def get_all_clients(cfg, trainset, cidx):
+    """Create all clients along the arrival process."""
+    c = cfg
+    arrivals = get_arrivals(c.simulation_time_s, c.poisson_rate)
+    clients = []
+    for i, t0 in enumerate(arrivals):
+        kph = np.random.uniform(c.min_speed_kph, c.max_speed_kph)
+        t_leave = t0 + c.road_length_m / (kph / 3.6)
+        n = np.random.randint(c.min_n_data, c.max_n_data + 1)
+        data = sample_local_data(trainset, cidx, n, c.n_sub_classes)
+        cpu_hz = np.random.uniform(c.min_cpu_hertz, c.max_cpu_hertz)
+        snr = np.random.uniform(c.snr_db_min, c.snr_db_max)
+        clients.append(Client(
+            i, t0, kph, t_leave, len(data), data, cpu_hz,
+            c.batch, c.n_local_epochs, c.n_cpu_cycles_per_data,
+            c.effective_capacitance, snr, c.bandwidth_hz,
+            c.tx_power_w, c.learning_rate, c.momentum, c.weight_decay,
+        ))
+    return clients
 
