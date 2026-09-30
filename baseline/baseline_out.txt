@@ -1,0 +1,47 @@
+[2026-09-30 14:20:18] round 1/16
+  No active client, continue.
+[2026-09-30 14:20:18] round 2/16
+  Number of active clients: 4
+  Test accuracy: 23.48 %
+[2026-09-30 14:20:27] round 3/16
+  Number of active clients: 6
+  Test accuracy: 26.35 %
+[2026-09-30 14:20:40] round 4/16
+  Number of active clients: 8
+  Test accuracy: 29.98 %
+[2026-09-30 14:20:57] round 5/16
+  Number of active clients: 9
+  Test accuracy: 31.01 %
+[2026-09-30 14:21:11] round 6/16
+  Number of active clients: 3
+  Test accuracy: 30.62 %
+[2026-09-30 14:21:20] round 7/16
+  Number of active clients: 7
+  Test accuracy: 32.68 %
+[2026-09-30 14:21:34] round 8/16
+  Number of active clients: 7
+  Test accuracy: 34.45 %
+[2026-09-30 14:21:51] round 9/16
+  Number of active clients: 2
+  Test accuracy: 36.36 %
+[2026-09-30 14:21:59] round 10/16
+  Number of active clients: 3
+  Test accuracy: 36.2 %
+[2026-09-30 14:22:08] round 11/16
+  Number of active clients: 10
+  Test accuracy: 42.14 %
+[2026-09-30 14:22:30] round 12/16
+  Number of active clients: 3
+  Test accuracy: 38.33 %
+[2026-09-30 14:22:37] round 13/16
+  Number of active clients: 5
+  Test accuracy: 39.49 %
+[2026-09-30 14:22:53] round 14/16
+  Number of active clients: 6
+  Test accuracy: 43.64 %
+[2026-09-30 14:23:06] round 15/16
+  Number of active clients: 4
+  Test accuracy: 40.12 %
+[2026-09-30 14:23:13] round 16/16
+  Number of active clients: 6
+  Test accuracy: 43.36 %
