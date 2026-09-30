@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -46,7 +48,7 @@ class Cfg(BaseModel):
         return self
 
 
-def load_cfg(path):
+def load_cfg(path: str | Path) -> Cfg:
     """Load and validate a YAML config."""
     with open(path) as f:
         return Cfg(**yaml.safe_load(f))
