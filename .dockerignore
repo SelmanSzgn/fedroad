@@ -11,3 +11,4 @@ tests
 .dvc
 __pycache__
 *.egg-info
+models

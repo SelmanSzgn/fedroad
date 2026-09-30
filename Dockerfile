@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir torch torchvision \
     --index-url https://download.pytorch.org/whl/cpu
 COPY pyproject.toml ./
 COPY src ./src
-RUN pip install --no-cache-dir ".[campaign]"
+RUN pip install --no-cache-dir ".[campaign,serve]"
 
 FROM python:3.12-slim
 COPY --from=build /opt/venv /opt/venv
