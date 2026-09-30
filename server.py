@@ -1,11 +1,15 @@
 import torch
 
 
-def aggregate(global_model, uploads):
-    state = global_model.state_dict()
+def aggregate(model, uploads):
+    """FedAvg. uploads: list of (n_data, client_model)."""
+    if not uploads:
+        return model
+    total = sum(n for n, _ in uploads)
+    states = [(n / total, m.state_dict()) for n, m in uploads]
+    new = {}
     with torch.no_grad():
-        for key in state.keys():
-            state[key] = sum(m[0] * m[1].state_dict()[key] for m in uploads)
-    global_model.load_state_dict(state)
-    return global_model
-
+        for k in model.state_dict():
+            new[k] = sum(w * s[k] for w, s in states)
+    model.load_state_dict(new)
+    return model

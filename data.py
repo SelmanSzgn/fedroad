@@ -7,7 +7,7 @@ import torchvision.transforms as transforms
 
 def create_class_indices(trainset):
     class_indices = {i: [] for i in range(10)}
-    for idx, (_, label) in enumerate(trainset):
+    for idx, label in enumerate(trainset.targets):
         class_indices[label].append(idx)
     return class_indices
 

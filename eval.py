@@ -5,8 +5,6 @@ import torch.nn as nn
 def get_test_accuracy(testloader, device, global_model):
     correct = 0
     total = 0
-    ytrue = []
-    ypred = []
     global_model.eval()
     with torch.no_grad():
         for images, labels in testloader:
@@ -15,10 +13,7 @@ def get_test_accuracy(testloader, device, global_model):
             _, predicted = torch.max(outputs, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
-            ytrue.extend(labels.cpu().numpy())
-            ypred.extend(predicted.cpu().numpy())
-    acc = 100 * (correct / total)
-    return acc
+    return 100 * correct / total
 
 def get_test_loss(testloader, device, global_model):
     global_model.eval()

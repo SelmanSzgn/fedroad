@@ -73,7 +73,7 @@ class Client:
         return (self.cpu_cycles*self.n_data*self.epochs) / self.cpu_hz
     
     def get_cp_energy(self):
-        """Compute client communication energy (joules)."""
+        """Compute client computation energy (joules)."""
         return self.get_cp_time()*self.eff_capa*(self.cpu_hz ** 3)
     
     def get_throughput(self):
@@ -88,6 +88,11 @@ class Client:
     def get_co_energy(self, model_size, model_precision):
         """Compute client communication energy (joules)."""
         return self.ptx * self.get_co_time(model_size, model_precision)
+
+    def can_finish(self, size, prec, time_left):
+        """Check if training and upload fit in the time left."""
+        t = self.get_cp_time() + self.get_co_time(size, prec)
+        return t <= time_left
     
     def local_update(self, global_model, device):
         """Run local training."""
@@ -169,6 +174,7 @@ def get_all_clients(
             n_data, 
             n_sub_classes
         )
+        n_data = len(local_data)
         cpu_hz = np.random.uniform(min_cpu_hz, max_cpu_hz)
         snr_db = np.random.uniform(snr_db_min, snr_db_max)
         client = Client(

@@ -8,7 +8,7 @@ road_length_m: 600
 min_speed_kph: 30
 max_speed_kph: 60
 # Random seed for reproductibility
-numpy_seed: 42
+seed: 42
 # Round duration (in seconds)
 round_duration_s: 60
 # Min and max client number of data
