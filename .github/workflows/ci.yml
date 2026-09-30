@@ -34,7 +34,7 @@ jobs:
           --index-url https://download.pytorch.org/whl/cpu
 
       - name: Install project
-        run: pip install -e ".[dev,campaign]"
+        run: pip install -e ".[dev,campaign,serve]"
 
       - name: Lint
         run: ruff check .
@@ -47,11 +47,19 @@ jobs:
 
       - name: Tests
         run: python -m pytest --cov=fedroad --cov-report=term-missing
+
   docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Build image
         run: docker build -t fedroad .
+
       - name: Smoke test
         run: docker run --rm fedroad --help
+
+      - name: API import smoke test
+        run: >
+          docker run --rm --entrypoint python fedroad
+          -c "import fedroad.api"
