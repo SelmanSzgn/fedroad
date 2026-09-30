@@ -1,0 +1,13 @@
+.git
+.venv
+data
+runs
+ref
+mlruns
+mlartifacts
+mlflow.db
+baseline
+tests
+.dvc
+__pycache__
+*.egg-info
