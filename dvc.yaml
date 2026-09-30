@@ -1,8 +1,0 @@
-stages:
-  train:
-    cmd: fedroad --cfg configs/default.yaml --out ref --no-track
-    deps:
-      - src/fedroad
-      - configs/default.yaml
-    outs:
-      - ref

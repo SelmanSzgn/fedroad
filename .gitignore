@@ -9,6 +9,5 @@ check.log
 mlflow.db
 mlruns/
 mlartifacts/
-/ref
 models/
 sample.png

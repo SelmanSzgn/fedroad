@@ -28,14 +28,13 @@ flowchart LR
     sim --> out["metrics.csv, model.pt"]
     out --> mlf[("MLflow")]
     flow --> ana["summary.csv / summary.png"]
-    dvc["DVC"] -->|"reference run"| sim
     out --> api["FastAPI"]
     ci["GitHub Actions"] -.-> sim
 ```
 
 Stack: Pydantic (config), Typer (CLI), MLflow (tracking), Prefect
-(campaigns), DVC (reference pipeline), FastAPI (API), Docker Compose,
-GitHub Actions, pytest / ruff / mypy / pre-commit.
+(campaigns), FastAPI (API), Docker Compose, GitHub Actions,
+pytest / ruff / mypy / pre-commit.
 
 ## Quick start
 
@@ -44,7 +43,7 @@ Python 3.12+, CPU is enough (GPU is used if available).
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
-pip install -e ".[dev,dvc,campaign,serve]"
+pip install -e ".[dev,campaign,serve]"
 
 fedroad --out runs/demo --name demo
 mlflow ui --backend-store-uri sqlite:///mlflow.db
@@ -68,17 +67,6 @@ grid:
 fedroad-campaign
 ```
 
-![Campaign summary](docs/summary.png)
-
-Mean and std over 3 seeds (`acc`: test accuracy over the last 5 rounds,
-`drop`: % of clients dropped, `energy`: total energy of participants):
-
-```text
-PASTE YOUR TABLE HERE
-```
-
-ADD 1-2 SENTENCES ABOUT WHAT YOU OBSERVE.
-
 ## Docker and API
 
 ```bash
@@ -94,6 +82,5 @@ MLflow UI: `http://localhost:5000`. The API loads `models/model.pt`
 ## Reproducibility and quality
 
 - One `seed` fixes Python, NumPy and PyTorch: same config, same
-  `metrics.csv` (tested). `dvc repro` rebuilds the reference run only when
-  code or config change.
+  `metrics.csv` (tested). Each run stores its config (`cfg.json`).
 - CI runs ruff, mypy and pytest (Python 3.12 and 3.13) plus a Docker build.

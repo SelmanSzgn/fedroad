@@ -20,12 +20,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-cov", "ruff", "mypy", "pre-commit", "httpx", "onnx"]
-dvc = ["dvc"]
+dev = ["pytest", "pytest-cov", "ruff", "mypy", "pre-commit", "httpx"]
 campaign = ["prefect"]
-serve = [
-    "fastapi", "uvicorn", "onnxruntime", "pillow", "python-multipart",
-]
+serve = ["fastapi", "uvicorn", "pillow", "python-multipart"]
 
 [project.scripts]
 fedroad = "fedroad.cli:app"
