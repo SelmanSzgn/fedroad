@@ -8,4 +8,3 @@ Vehicular federated learning simulator.
 pip install -e ".[dev]"
 fedroad --help
 ````
-````
