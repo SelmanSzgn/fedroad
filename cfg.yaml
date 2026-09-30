@@ -20,7 +20,7 @@ min_cpu_hertz: 1.0e+9
 max_cpu_hertz: 2.0e+9
 batch: 16
 n_local_epochs: 5
-n_cpu_cycles_per_data: 3.0e+5
+n_cpu_cycles_per_data: 1.0e+7
 effective_capacitance: 1.0e-27
 snr_db_min: 5
 snr_db_max: 20

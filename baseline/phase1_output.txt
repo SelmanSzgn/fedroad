@@ -1,0 +1,64 @@
+[2026-09-30 15:05:19] initial model | test acc: 9.60 %
+[2026-09-30 15:05:19] round 1/16 | t = 0 s | active: 0
+[2026-09-30 15:05:24]   participants: 0 | dropped: 0
+[2026-09-30 15:05:24]   test acc: 9.60 % | test loss: 2.3423
+[2026-09-30 15:05:24] round 2/16 | t = 60 s | active: 4
+[2026-09-30 15:05:33]   participants: 4 | dropped: 0
+[2026-09-30 15:05:33]   test acc: 19.36 % | test loss: 2.2473
+[2026-09-30 15:05:34]   client acc: mean 21.38 % | min 18.14 %
+[2026-09-30 15:05:34] round 3/16 | t = 120 s | active: 6
+[2026-09-30 15:05:42]   participants: 2 | dropped: 4
+[2026-09-30 15:05:42]   test acc: 25.47 % | test loss: 2.3993
+[2026-09-30 15:05:43]   client acc: mean 25.99 % | min 19.41 %
+[2026-09-30 15:05:43] round 4/16 | t = 180 s | active: 8
+[2026-09-30 15:05:59]   participants: 7 | dropped: 1
+[2026-09-30 15:05:59]   test acc: 25.31 % | test loss: 2.0907
+[2026-09-30 15:06:01]   client acc: mean 29.05 % | min 20.88 %
+[2026-09-30 15:06:01] round 5/16 | t = 240 s | active: 9
+[2026-09-30 15:06:10]   participants: 4 | dropped: 5
+[2026-09-30 15:06:10]   test acc: 28.54 % | test loss: 2.0931
+[2026-09-30 15:06:12]   client acc: mean 30.95 % | min 21.20 %
+[2026-09-30 15:06:12] round 6/16 | t = 300 s | active: 3
+[2026-09-30 15:06:18]   participants: 1 | dropped: 2
+[2026-09-30 15:06:18]   test acc: 31.78 % | test loss: 2.3643
+[2026-09-30 15:06:19]   client acc: mean 33.64 % | min 28.36 %
+[2026-09-30 15:06:19] round 7/16 | t = 360 s | active: 7
+[2026-09-30 15:06:28]   participants: 4 | dropped: 3
+[2026-09-30 15:06:28]   test acc: 32.78 % | test loss: 1.9822
+[2026-09-30 15:06:30]   client acc: mean 32.55 % | min 19.42 %
+[2026-09-30 15:06:30] round 8/16 | t = 420 s | active: 7
+[2026-09-30 15:06:40]   participants: 3 | dropped: 4
+[2026-09-30 15:06:40]   test acc: 37.71 % | test loss: 1.9375
+[2026-09-30 15:06:41]   client acc: mean 35.82 % | min 30.88 %
+[2026-09-30 15:06:41] round 9/16 | t = 480 s | active: 2
+[2026-09-30 15:06:49]   participants: 2 | dropped: 0
+[2026-09-30 15:06:49]   test acc: 34.75 % | test loss: 2.0643
+[2026-09-30 15:06:49]   client acc: mean 42.92 % | min 41.87 %
+[2026-09-30 15:06:49] round 10/16 | t = 540 s | active: 3
+[2026-09-30 15:06:59]   participants: 2 | dropped: 1
+[2026-09-30 15:06:59]   test acc: 31.74 % | test loss: 1.8898
+[2026-09-30 15:07:00]   client acc: mean 32.24 % | min 26.10 %
+[2026-09-30 15:07:00] round 11/16 | t = 600 s | active: 10
+[2026-09-30 15:07:10]   participants: 5 | dropped: 5
+[2026-09-30 15:07:10]   test acc: 38.73 % | test loss: 1.7961
+[2026-09-30 15:07:12]   client acc: mean 37.19 % | min 28.44 %
+[2026-09-30 15:07:12] round 12/16 | t = 660 s | active: 3
+[2026-09-30 15:07:18]   participants: 1 | dropped: 2
+[2026-09-30 15:07:18]   test acc: 37.14 % | test loss: 2.0040
+[2026-09-30 15:07:18]   client acc: mean 40.07 % | min 33.89 %
+[2026-09-30 15:07:18] round 13/16 | t = 720 s | active: 5
+[2026-09-30 15:07:29]   participants: 3 | dropped: 2
+[2026-09-30 15:07:29]   test acc: 35.56 % | test loss: 1.8335
+[2026-09-30 15:07:30]   client acc: mean 40.16 % | min 36.32 %
+[2026-09-30 15:07:30] round 14/16 | t = 780 s | active: 6
+[2026-09-30 15:07:37]   participants: 3 | dropped: 3
+[2026-09-30 15:07:37]   test acc: 36.69 % | test loss: 1.7996
+[2026-09-30 15:07:39]   client acc: mean 36.94 % | min 28.13 %
+[2026-09-30 15:07:39] round 15/16 | t = 840 s | active: 4
+[2026-09-30 15:07:49]   participants: 3 | dropped: 1
+[2026-09-30 15:07:49]   test acc: 39.65 % | test loss: 1.7373
+[2026-09-30 15:07:49]   client acc: mean 39.17 % | min 34.85 %
+[2026-09-30 15:07:49] round 16/16 | t = 900 s | active: 6
+[2026-09-30 15:07:56]   participants: 2 | dropped: 4
+[2026-09-30 15:07:56]   test acc: 38.61 % | test loss: 1.8356
+[2026-09-30 15:07:57]   client acc: mean 39.81 % | min 31.22 %
