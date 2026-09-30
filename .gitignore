@@ -9,3 +9,4 @@ check.log
 mlflow.db
 mlruns/
 mlartifacts/
+/ref

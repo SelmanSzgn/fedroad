@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: fedroad --cfg configs/default.yaml --out ref --no-track
+    deps:
+    - path: configs/default.yaml
+      hash: md5
+      md5: e5339dbd8558cd3fe0254553d59c2548
+      size: 812
+    - path: src/fedroad
+      hash: md5
+      md5: 6d79aff86009c6796847d23b465b6a8e.dir
+      size: 44955
+      nfiles: 21
+    outs:
+    - path: ref
+      hash: md5
+      md5: 3b70f6e151812f7e9a137f1c722d0279.dir
+      size: 47059
+      nfiles: 3
