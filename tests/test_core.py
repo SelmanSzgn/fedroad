@@ -32,10 +32,23 @@ def test_aggregate_empty_keeps_model():
 
 def make_client():
     return Client(
-        cid=0, t_arrive=0, kph=50, t_leave=100, n_data=500,
-        local_data=None, cpu_hz=1e9, batch=16, epochs=5,
-        cpu_cycles=1e7, eff_capa=1e-27, snr_db=10, bw_hz=1e6,
-        ptx=10, lr=1e-3, momentum=0.9, decay=5e-4,
+        cid=0,
+        t_arrive=0,
+        kph=50,
+        t_leave=100,
+        n_data=500,
+        local_data=None,
+        cpu_hz=1e9,
+        batch=16,
+        epochs=5,
+        cpu_cycles=1e7,
+        eff_capa=1e-27,
+        snr_db=10,
+        bw_hz=1e6,
+        ptx=10,
+        lr=1e-3,
+        momentum=0.9,
+        decay=5e-4,
     )
 
 

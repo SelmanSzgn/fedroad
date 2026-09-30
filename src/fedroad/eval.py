@@ -15,6 +15,7 @@ def get_test_accuracy(testloader, device, global_model):
             correct += (predicted == labels).sum().item()
     return 100 * correct / total
 
+
 def get_test_loss(testloader, device, global_model):
     global_model.eval()
     criterion = nn.CrossEntropyLoss()
@@ -31,6 +32,7 @@ def get_test_loss(testloader, device, global_model):
     avg_loss = total_loss / total_samples
     return avg_loss
 
+
 def get_client_accuracy(active_clients, global_model, device, batch_size=32):
     client_accuracy = []
     for client in active_clients:
@@ -41,6 +43,7 @@ def get_client_accuracy(active_clients, global_model, device, batch_size=32):
         client_accuracy.append(accuracy)
     return client_accuracy
 
+
 def get_client_loss(active_clients, global_model, device, batch_size=32):
     client_loss = []
     for client in active_clients:
@@ -50,4 +53,3 @@ def get_client_loss(active_clients, global_model, device, batch_size=32):
         loss = get_test_loss(local_data_loader, device, global_model)
         client_loss.append(loss)
     return client_loss
-

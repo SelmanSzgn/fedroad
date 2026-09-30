@@ -15,8 +15,16 @@ from .server import aggregate
 log = logging.getLogger("fedroad")
 
 FIELDS = [
-    "round", "t", "active", "part", "drop",
-    "acc", "loss", "cacc_mean", "cacc_min", "energy_j",
+    "round",
+    "t",
+    "active",
+    "part",
+    "drop",
+    "acc",
+    "loss",
+    "cacc_mean",
+    "cacc_min",
+    "energy_j",
 ]
 
 
@@ -57,8 +65,7 @@ def run(cfg, out):
             t = r * dur
             act = [c for c in clients if c.t_arrive <= t < c.t_leave]
             log.info(
-                f"round {r + 1}/{n_rounds} | t = {t} s | "
-                f"active: {len(act)}"
+                f"round {r + 1}/{n_rounds} | t = {t} s | active: {len(act)}"
             )
 
             # A client joins only if it can train and upload before leaving
@@ -78,9 +85,16 @@ def run(cfg, out):
             log.info(f"  test acc: {acc:.2f} % | test loss: {loss:.4f}")
 
             row = dict(
-                round=r + 1, t=t, active=len(act), part=len(ups),
-                drop=n_drop, acc=acc, loss=loss, cacc_mean=None,
-                cacc_min=None, energy_j=energy,
+                round=r + 1,
+                t=t,
+                active=len(act),
+                part=len(ups),
+                drop=n_drop,
+                acc=acc,
+                loss=loss,
+                cacc_mean=None,
+                cacc_min=None,
+                energy_j=energy,
             )
             if act:
                 cacc = get_client_accuracy(act, gmodel, dev)
